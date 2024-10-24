@@ -67,41 +67,44 @@ export const Home = () => {
 
     return (
         <>
-        <div className='flex min-w-full flex-col min-h-screen  m-0 p-0 justify-center items-center'>
-            <div className='flex flex-col justify-between min-w-full gap-5 '>
+        <div className=' min-h-screen w-screen flex bg-[url("https://picsum.photos/1600/1000")] justify-center items-center'>
+            <div className='flex flex-col w-[1400px] sm:m-8 justify-center items-center'>
+                <div className='flex flex-col justify-between min-w-full gap-5 '>
 
-                <div className='flex flex-col gap-5'>
-                    <h1 className='font-semibold text-3xl text-gray-400'>Hi there!</h1>
-                    <p id='clock' className='font-bold text-7xl '></p>
+                    <div className='flex flex-col gap-5'>
+                        <h1 className='font-semibold text-3xl'>Hi there!</h1>
+                        <p id='clock' className='font-bold text-7xl '></p>
 
-                    <form className='mt-5' onSubmit={(e) => {
-                        e.preventDefault()
-                        const searchValue = e.target.elements.search.value
-                        console.log(searchValue)
-                        window.location.href = `https://www.google.com/search?q=${searchValue}`
-                    }}>
-                        <TextField.Root type="text"  name="search" placeholder="blablabla...">
-                            <TextField.Slot >
-                                <MagnifyingGlassIcon height="16" width="16" />
-                            </TextField.Slot>
-                        </TextField.Root>
-                    </form>
+                        <form className='mt-5' onSubmit={(e) => {
+                            e.preventDefault()
+                            const searchValue = e.target.elements.search.value
+                            console.log(searchValue)
+                            window.location.href = `https://www.google.com/search?q=${searchValue}`
+                        }}>
+                            <TextField.Root type="text"  name="search" placeholder="blablabla...">
+                                <TextField.Slot >
+                                    <MagnifyingGlassIcon height="16" width="16" />
+                                </TextField.Slot>
+                            </TextField.Root>
+                        </form>
+                    </div>
+
                 </div>
 
+                <div className='absolute bottom-5'>
+                {load ? (
+                    <Spinner />
+                ) : (
+                        <>
+                            <p className='font-normal text-lg'>"{quote.quote}"</p>
+                            <p className='font-thin text-sm text-gray-50'>- {quote.author}</p>
+                        </>
+                    )}
+                </div>
+
+                
             </div>
 
-            <div className='mt-10'>
-            {load ? (
-                <Spinner />
-            ) : (
-                    <>
-                        <p className='font-thin text-lg'>"{quote.quote}"</p>
-                        <p className='font-thin text-sm text-gray-400'>- {quote.author}</p>
-                    </>
-                )}
-            </div>
-
-            
         </div>
         </>
     )
