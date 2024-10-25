@@ -73,7 +73,7 @@ export const Home = () => {
 
                     <div className='flex flex-col gap-5'>
                         <h1 className='font-semibold text-3xl'>Hi there!</h1>
-                        <p id='clock' className='font-bold text-7xl '></p>
+                        <p id='clock' className='font-bold text-7xl text-white'></p>
 
                         <form className='mt-5' onSubmit={(e) => {
                             e.preventDefault()
@@ -96,7 +96,7 @@ export const Home = () => {
                     <Spinner />
                 ) : (
                         <>
-                            <p className='font-normal text-lg'>"{quote.quote}"</p>
+                            <p className='font-normal text-lg'>{quote.quote}</p>
                             <p className='font-thin text-sm text-gray-50'>- {quote.author}</p>
                         </>
                     )}
